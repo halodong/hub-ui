@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "noLib": false,
+        "target": "es6",
+        "sourceMap": true,
+        "lib": ["ESNext", "DOM"],
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "strict": true,
+        "skipLibCheck": true
+    },
+    "exclude": ["node_modules", "**/__tests__"]
+}
