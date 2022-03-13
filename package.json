@@ -1,22 +1,23 @@
 {
-    "name": "hubui",
-    "version": "0.0.1",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "rollup -c",
-        "dev": "rollup -cw --environment TARGET:src"
-    },
-    "author": "",
-    "license": "MIT",
-    "devDependencies": {
-        "typescript": "^4.6.2"
-    },
-    "dependencies": {
-        "@rollup/plugin-node-resolve": "^13.1.3",
-        "rollup": "^2.70.0",
-        "rollup-plugin-postcss": "^4.0.2",
-        "rollup-plugin-typescript2": "^0.31.2"
-    }
+  "name": "hubui",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rollup -c",
+    "dev": "rollup -cw --environment TARGET:src"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "jest": "^27.5.1",
+    "postcss": "^8.4.8",
+    "rollup": "^2.70.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "sass": "^1.49.9",
+    "typescript": "^4.6.2"
+  }
 }

@@ -1,6 +1,6 @@
 import ts from "rollup-plugin-typescript2";
 import resolve from "@rollup/plugin-node-resolve";
-
+import postCss from "rollup-plugin-postcss";
 export default {
   input: "./src/index.ts",
   output: [
@@ -10,5 +10,5 @@ export default {
       format: "umd",
     },
   ],
-  plugins: [ts({ declaration: false, module: "ES6" }), resolve()],
+  plugins: [ts({ declaration: false, module: "ES6" }), resolve(), postCss()],
 };
