@@ -1,13 +1,15 @@
-class HubBtn extends HTMLElement {
+class HubBtn extends HTMLButtonElement {
   constructor() {
     super();
-    console.log("1", this.childNodes);
-    var shadow = this.attachShadow({ mode: "open" });
-    var content = document.createElement("button");
-    content.innerHTML = "h";
-    content.setAttribute("class", "hui");
-    shadow.appendChild(content);
+  }
+  static addClass () {
+    console.log('addclass')
+    return 'hub-btn'
+  }
+  connectedCallback(){
+    console.log('connectedCallback')
+    this.className = 'hub-btn'
   }
 }
 
-window.customElements.define("hub-btn", HubBtn);
+window.customElements.define("hub-btn", HubBtn,{ extends: 'button' });

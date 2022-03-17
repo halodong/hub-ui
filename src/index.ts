@@ -1,2 +1,2 @@
 import "./components/Button/index";
-import "./index.scss";
+import "./styles/index.scss";
