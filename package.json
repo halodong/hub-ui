@@ -7,7 +7,9 @@
     "test": "jest",
     "build": "rollup -c",
     "dev": "rollup -cw --environment TARGET:src",
-    "lint": "eslint --ext js,ts,tsx ."
+    "lint": "eslint --ext js,ts,tsx .",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog-f": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "author": "",
   "license": "MIT",
@@ -16,6 +18,7 @@
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.1.0",
+    "conventional-changelog-cli": "^2.2.2",
     "eslint-config-standard": "^16.0.3",
     "eslint-config-standard-with-typescript": "^21.0.1",
     "eslint-plugin-standard": "^5.0.0",
