@@ -1,13 +1,12 @@
-class HubBtn extends HTMLButtonElement {
-  static addClass (): string {
-    console.log('addclass')
-
+export class HubBtn extends HTMLButtonElement {
+  static getClassName (): string {
+    console.log('getClassName')
     return 'hub-btn'
   }
 
   connectedCallback (): void {
     console.log('connectedCallback')
-    this.className = 'hub-btn'
+    this.className = HubBtn.getClassName()
   }
 }
 
