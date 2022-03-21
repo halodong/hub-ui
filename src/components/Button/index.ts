@@ -1,13 +1,14 @@
 export class HubBtn extends HTMLButtonElement {
   public get btnType (): string {
-    const type = this.getAttribute('h-type')
+    const type = this.getAttribute('btnType')
     return type == null ? '' : type
   }
 
   public set btnType (type: string) {
-    this.setAttribute('h-type', type)
-    // TODO
-    // process className
+    // setAttribute
+    this.setAttribute('btnType', type)
+    // update className
+    this.className = this.getClassName()
   }
 
   public getClassName (): string {
