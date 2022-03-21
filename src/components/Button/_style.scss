@@ -18,6 +18,11 @@
     $btn-font-size,
     $btn-border-radius
   );
+  @include button-style-darken(
+    $gray-100,
+    $btn-border-color,
+    $body-color
+  );
   box-shadow         : $btn-box-shadow;
   cursor             : pointer;
   transition         : $btn-transition;
@@ -32,7 +37,12 @@
       pointer-events: none;
     }
   }
-  &:hover {
-    background-color: $gray-200;
-  }
+}
+
+.btn-primary {
+  @include button-style-lighten($primary , $primary , $white)
+}
+
+.btn-danger {
+  @include button-style-lighten($danger , $danger , $white)
 }
