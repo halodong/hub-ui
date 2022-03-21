@@ -1,13 +1,23 @@
+import { BtnSize, BtnType } from './types'
+
 export class HubBtn extends HTMLButtonElement {
-  public get btnType (): string {
-    const type = this.getAttribute('btnType')
-    return type == null ? '' : type
+  public get btnType (): BtnType {
+    const type = this.getAttribute('btnType') as BtnType
+    return type
   }
 
-  public set btnType (type: string) {
-    // setAttribute
-    this.setAttribute('btnType', type)
-    // update className
+  public set btnType (type: BtnType) {
+    type != null && this.setAttribute('btnType', type)
+    this.className = this.getClassName()
+  }
+
+  public get size (): BtnSize {
+    const type = this.getAttribute('size') as BtnSize
+    return type
+  }
+
+  public set size (type: BtnSize) {
+    type != null && this.setAttribute('size', type)
     this.className = this.getClassName()
   }
 
@@ -16,11 +26,13 @@ export class HubBtn extends HTMLButtonElement {
     if (this.btnType != null) {
       baseClassNameArr.push(`btn-${this.btnType}`)
     }
+    if (this.size != null) {
+      baseClassNameArr.push(`btn-${this.size}`)
+    }
     return baseClassNameArr.join(' ')
   }
 
   connectedCallback (): void {
-    console.log('connectedCallback', this.getClassName())
     this.className = this.getClassName()
   }
 }
