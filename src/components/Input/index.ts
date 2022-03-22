@@ -1,12 +1,14 @@
 export class HubInput extends HTMLElement {
-  public wrap: HTMLDivElement
-  public inner: HTMLInputElement
+  public wrapEl: HTMLDivElement
+  public innerEl: HTMLInputElement
+  public afterEl: HTMLDivElement | null = null
+  public beforeEl: HTMLDivElement | null = null
 
   constructor () {
     super()
 
-    const wrap = (this.wrap = document.createElement('div'))
-    const inner = (this.inner = document.createElement('input'))
+    const wrap = (this.wrapEl = document.createElement('div'))
+    const inner = (this.innerEl = document.createElement('input'))
     wrap.className = 'hub-input-wrapper'
     inner.className = 'hub-input-inner'
     wrap.appendChild(inner)
@@ -17,14 +19,16 @@ export class HubInput extends HTMLElement {
     const before = document.createElement('div')
     before.className = 'hub-input-group-prepend'
     before.innerHTML = label
-    this.wrap.insertBefore(before, this.inner)
+    this.beforeEl = before
+    this.wrapEl.insertBefore(before, this.innerEl)
   }
 
   public addAfterEl (label: string): void {
     const after = document.createElement('div')
     after.className = 'hub-input-group-append'
     after.innerHTML = label
-    this.wrap.append(after)
+    this.afterEl = after
+    this.wrapEl.append(after)
   }
 
   public get addonBefore (): string {
@@ -58,19 +62,19 @@ export class HubInput extends HTMLElement {
   connectedCallback (): void {
     if (this.addonBefore != null) {
       this.addBeforeEl(this.addonBefore)
-      this.wrap.classList.add('input-group-prepend')
+      this.wrapEl.classList.add('input-group-prepend')
     }
     if (this.addonAfter != null) {
       this.addAfterEl(this.addonAfter)
-      this.wrap.classList.add('input-group-append')
+      this.wrapEl.classList.add('input-group-append')
     }
     if (this.size != null) {
-      this.wrap.classList.add(`input-size-${this.size}`)
+      this.wrapEl.classList.add(`input-size-${this.size}`)
     }
     if (this.disabled === '' || this.disabled === 'true') {
-      this.inner.setAttribute('disabled', 'true')
+      this.innerEl.setAttribute('disabled', 'true')
     }
-    this.wrap.classList.add('input-group')
+    this.wrapEl.classList.add('input-group')
   }
 }
 
