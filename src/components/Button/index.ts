@@ -14,11 +14,6 @@ export class HubBtn extends HTMLButtonElement {
     return type
   }
 
-  public set size (type: BtnSize) {
-    type != null && this.setAttribute('size', type)
-    this.className = this.getClassName()
-  }
-
   public getClassName (): string {
     const baseClassNameArr = ['hub-btn']
     if (this.btnType != null) {
