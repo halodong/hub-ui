@@ -1,5 +1,3 @@
-import { BtnSize, BtnType } from './types'
-
 export class HubBtn extends HTMLButtonElement {
   public get btnType (): BtnType {
     const type = this.getAttribute('btnType') as BtnType
@@ -38,3 +36,8 @@ export class HubBtn extends HTMLButtonElement {
 }
 
 window.customElements.define('hub-btn', HubBtn, { extends: 'button' })
+
+// types
+// --------------------------------------------------------------------------------------------------------------
+export type BtnType = 'primary' | 'danger' | 'normal' | null
+export type BtnSize = 'lg' | 'sm' | null
