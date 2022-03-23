@@ -14,7 +14,6 @@ export class HubInput extends HTMLInputElement {
 
   connectedCallback (): void {
     this.className = this.getClassName()
-    console.log(this.className)
   }
 }
 
