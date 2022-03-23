@@ -1,23 +1,11 @@
 import { HubInput } from '../../src/components/Input'
 
-const hasGroupClassName = (hubInput: HubInput): boolean => {
-  return hubInput.wrapEl.className.includes('input-group')
+const hasBaseClassName = (el: HubInput): boolean => {
+  return el?.className.includes('hub-input')
 }
-const hasBeforeEl = (hubInput: HubInput): boolean => {
-  return hubInput.beforeEl != null
-}
-test('hub-input has inner input el', () => {
-  const el = new HubInput()
-  document.body.appendChild(el)
-  el.addonBefore = 'http'
-  el.connectedCallback()
-  expect(hasGroupClassName(el)).toBe(true)
-})
 
-test('hub-input has before el', () => {
+test('hub-btn has corresponding className', () => {
   const el = new HubInput()
   document.body.appendChild(el)
-  el.addonBefore = 'http'
-  el.connectedCallback()
-  expect(hasBeforeEl(el)).toBe(true)
+  expect(hasBaseClassName(el)).toBe(true)
 })

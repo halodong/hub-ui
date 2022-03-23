@@ -1,11 +1,6 @@
-.hub-input-wrapper {
-  display: flex;
+.hub-input {
   width: 100%;
   margin-bottom: 30px;
-  position: relative;
-}
-.hub-input-inner {
-  width: 100%;
   padding: $input-padding-y $input-padding-x;
   font-family: $input-font-family;
   font-size: $input-font-size;
@@ -44,43 +39,14 @@
     cursor: not-allowed;
   }
 }
-.hub-input-group-prepend,
-.hub-input-group-append {
-  display: flex;
-  align-items: center;
-  padding: $input-padding-y $input-padding-x;
-  margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
-  font-size: $input-font-size; // Match inputs
-  font-weight: $font-weight-normal;
-  line-height: $input-line-height;
-  color: $input-group-addon-color;
-  text-align: center;
-  white-space: nowrap;
-  background-color: $input-group-addon-bg;
-  border: $input-border-width solid $input-group-addon-border-color;
-  border-radius: $input-border-radius;
-}
-.hub-input-group-append + .btn {
-  padding: 0;
-  border: 0;
-}
-.input-group > .hub-input-group-prepend,
-.input-group.input-group-append > .hub-input-inner {
-  @include border-right-radius(0);
-}
 
-.input-group > .hub-input-group-append,
-.input-group.input-group-prepend > .hub-input-inner {
-  @include border-left-radius(0);
-}
-
-.input-size-sm .hub-input-inner {
+.input-size-sm {
   padding: $input-padding-y-sm $input-padding-x-sm;
   font-size: $input-font-size-sm;
   border-radius: $input-border-radius-sm;
 }
 
-.input-size-lg .hub-input-inner {
+.input-size-lg {
   padding: $input-padding-y-lg $input-padding-x-lg;
   font-size: $input-font-size-lg;
   border-radius: $input-border-radius-lg;

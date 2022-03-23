@@ -10,8 +10,8 @@ export class HubBtn extends HTMLButtonElement {
   }
 
   public get size (): BtnSize {
-    const type = this.getAttribute('size') as BtnSize
-    return type
+    const size = this.getAttribute('size') as BtnSize
+    return size
   }
 
   public getClassName (): string {

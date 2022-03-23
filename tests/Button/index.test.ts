@@ -1,5 +1,6 @@
 import { HubBtn } from '../../src/components/Button'
-const hasBaseClassName = (el: HTMLButtonElement): boolean => {
+
+const hasBaseClassName = (el: HubBtn): boolean => {
   return el?.className.includes('hub-btn')
 }
 
