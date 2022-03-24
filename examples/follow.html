@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example1</title>
+  <style>
+    #target {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="width: 400px; height: 100vh; margin: 10px auto">
+    <button id='trigger' is="hub-btn">base</button>
+    <div id='target' class="hide"></div>
+  </div>
+
+  <script src="../dist/index.js"></script>
+  <script>
+    trigger.onclick = () => {
+      _follow(target, trigger)
+      target.classList.remove('hide')
+    }
+
+  </script>
+</body>
+
+</html>
