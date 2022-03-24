@@ -21,7 +21,8 @@
 
 <body>
   <div style="width: 400px; height: 100vh; margin: 10px auto">
-    <button id='trigger' is="hub-btn">base</button>
+    <div   style="text-align:center;"><button id='trigger' is="hub-btn">trigger</button></div>
+    <div   style="text-align:center;"><span id='trigger1'>trigger1</span></div>
     <div id='target' class="hide"></div>
   </div>
 
@@ -31,7 +32,10 @@
       _follow(target, trigger)
       target.classList.remove('hide')
     }
-
+    trigger1.onclick = () => {
+      _follow(target, trigger1)
+      target.classList.remove('hide')
+    }
   </script>
 </body>
 
