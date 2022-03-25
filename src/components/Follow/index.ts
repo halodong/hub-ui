@@ -1,40 +1,29 @@
 import { Tether } from '../../plugins/tether.js'
 export const follow = (
-  target: HTMLElement,
+  el: HTMLElement,
   trigger: HTMLElement,
   options
 ): void => {
-  // const defaults = {
-  //   offsets: {
-  //     x: 0,
-  //     y: 0
-  //   },
-  //   edgeAdjust: true
-  // }
-  // const params = { ...defaults, ...options }
-  // //   const tarWidth = target.offsetWidth
-  // //   const tarHeight = target.offsetHeight
-  // const tirLeft = trigger.offsetLeft
-  // let tirTop = trigger.offsetTop
-  // // const tirWidth = trigger.offsetWidth
-  // const tirHeight = trigger.offsetHeight
+  const defaults = {
+    /**
+     * attachment: A string of the form 'vert-attachment horiz-attachment'
+     * vert-attachment can be any of 'top', 'middle', 'bottom'
+     * horiz-attachment can be any of 'left', 'center', 'right'
+     */
+    pin: 'top, bottom',
+    attachment: 'top center',
+    targetAttachment: 'bottom center'
+  }
 
-  // need to adjust the position, edge adjustment
-  // if (params.edgeAdjust !== true) {
-  //   // 判断是否溢出屏幕
-  // }
-
-  // tirTop += tirHeight
-  // target.style.cssText += `position: absolute;
-  // left: ${Math.round(tirLeft)}px;
-  // top:  ${Math.round(tirTop)}px`
-  // console.log(tirLeft, tirTop)
+  const params = { ...defaults, ...options }
   const t = new Tether({
-    element: target,
+    element: el,
     target: trigger,
-    attachment: 'top right',
-    targetAttachment: 'top left'
+    ...params
   })
-  console.log(t)
+  t.position()
+  console.log(t, params)
 }
-;(window as any)._follow = follow
+;(window as any).follow = follow
+
+// types

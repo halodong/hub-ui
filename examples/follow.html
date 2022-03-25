@@ -1,53 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example1</title>
-    <style>
-      #target {
-        width: 100px;
-        height: 100px;
-        background-color: blue;
-      }
 
-      .hide {
-        /* display: none; */
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example1</title>
+  <style>
+    #el {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
 
-  <body>
-    <div style="width: 400px; height: 120vh; margin: 10px auto">
-      <div style="text-align: center">
-        <button id="trigger" is="hub-btn">trigger</button>
-      </div>
-      <div style="text-align: center;position: relative;"><span id="trigger1">trigger1</span></div>
-      <div id="target" class="hide"></div>
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="width: 400px; height: 120vh; margin: 10px auto">
+    <div style="text-align: center">
+      <button id="trigger" is="hub-btn">trigger</button>
     </div>
+    <div style="text-align: center;position: relative;"><span id="trigger1">trigger1</span></div>
+    <div id="el" class="hide"></div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/tether@2.0.0-beta.5/dist/js/tether.min.js"></script>
-    <script src="../dist/index.js"></script>
-    <script>
-      trigger.onclick = () => {
-        _follow(target, trigger)
-        target.classList.remove('hide')
-        // new Tether({
-        //   element: target,
-        //   target: trigger,
-        //   attachment: 'top right',
-        //   targetAttachment: 'top left'
-        // })
-      }
-      trigger1.onclick = () => {
-        new Tether({
-          element: target,
-          target: trigger1,
-          attachment: 'top right',
-          targetAttachment: 'top left'
-        })
-      }
-    </script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/tether@2.0.0-beta.5/dist/js/tether.min.js"></script>
+  <script src="../dist/index.js"></script>
+  <script>
+    trigger.onclick = () => {
+      follow(el, trigger)
+      el.classList.remove('hide')
+    }
+    tips({
+      trigger: trigger1,
+    })
+
+  </script>
+</body>
+
 </html>
