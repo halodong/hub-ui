@@ -56,7 +56,7 @@ function isUndefined(value) {
   return value === undefined
 }
 
-function addClass(el, name) {
+export function addClass(el, name) {
   name.split(' ').forEach(function (cls) {
     if (cls.trim()) {
       el.classList.add(cls)
@@ -87,7 +87,7 @@ function getClass(key, classes, classPrefix) {
     return key
   }
 }
-function removeClass(el, name) {
+export function removeClass(el, name) {
   name.split(' ').forEach(function (cls) {
     if (cls.trim()) {
       el.classList.remove(cls)
@@ -1051,7 +1051,7 @@ var Shift = {
   }
 }
 
-var Evented =
+export var Evented =
   /*#__PURE__*/
   (function () {
     function Evented() {}
