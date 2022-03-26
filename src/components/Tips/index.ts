@@ -1,4 +1,4 @@
-import { follow } from 'components/Follow'
+import { Drop } from 'components/Drop'
 
 export const Tips = (options): void => {
   if (options.trigger == null) {
@@ -14,14 +14,14 @@ export const Tips = (options): void => {
   const params = { ...defaults, ...options }
   const el = document.createElement('div')
   el.id = 'el'
-  params.trigger.addEventListener('mouseover', () => {
-    console.log('tips')
-    document.body.append(el)
-    follow(el, params.trigger, { attachment: params.align })
+  const drop = new Drop({
+    target: params.trigger,
+    content: '<a>Welcome to the future</a>',
+    classes: 'drop-theme-arrows',
+    position: 'bottom center',
+    openOn: 'hover'
   })
-  params.trigger.addEventListener('mouseleave', () => {
-    el.remove()
-  })
+  console.log('tips', drop)
 }
 
 ;(window as any).tips = Tips
