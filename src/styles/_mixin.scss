@@ -77,3 +77,25 @@
   border-top-left-radius: $raduis;
   border-top-right-radius: $raduis;
 }
+
+@mixin tips-arrow-direction-horiz($position, $offsetList) {
+  @each $label,$offset in $offsetList {
+    .hub-tips-#{$position}-#{$label} {
+      margin-#{map-get($positionMap,$position)}: 5px;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-width: 5px;
+        border-style: solid;
+        left: 50%;
+        transform: translateX(#{$offset});
+        #{$position}: 100%;
+        border-#{$position}-color: #ebebeb;
+      }
+    }
+  }
+}

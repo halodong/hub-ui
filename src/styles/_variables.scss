@@ -254,3 +254,17 @@ $input-transition:                      border-color .3s ease-in-out, box-shadow
 $input-group-addon-color:               $input-color !default;
 $input-group-addon-bg:                  $gray-200 !default;
 $input-group-addon-border-color:        $input-border-color !default;
+
+
+// Tips
+$horiz-arrow-offset: (
+  ('left', '-100%'),
+  ('right', '50%'),
+  ('center', '-50%'),
+);
+$positionMap: (
+    'bottom': 'top',
+    'top'   : 'bottom',
+    'left'  : 'right',
+    'right' : 'left',
+);
