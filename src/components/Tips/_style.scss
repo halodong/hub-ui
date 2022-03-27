@@ -14,5 +14,8 @@
   }
 }
 
-@include tips-arrow-direction-horiz('top', $horiz-arrow-offset);
-@include tips-arrow-direction-horiz('bottom', $horiz-arrow-offset);
+@include tips-arrow-direction-horiz('top', $horiz-arrow-offset-horiz);
+@include tips-arrow-direction-horiz('bottom', $horiz-arrow-offset-horiz);
+
+@include tips-arrow-direction-vert('left', $horiz-arrow-offset-vert);
+@include tips-arrow-direction-vert('right', $horiz-arrow-offset-vert);

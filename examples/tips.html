@@ -20,13 +20,27 @@
 </head>
 
 <body>
-  <div style="width: 400px; height: 120vh; margin: 50px auto">
+  <div style="width: 70vw; height: 120vh; margin: 50px auto">
     <div style="text-align: center">
-      <button id="trigger" is="hub-btn">trigger</button>
-      <span id="trigger1">trigger1</span>
+      <button id="bl" is="hub-btn">bl</button>
+      <button id="br" is="hub-btn">br</button>
+      <button id="bc" is="hub-btn">bc</button>
     </div>
-    <div style="text-align: center;position: relative;"></div>
-    <div id="el" class="hide"></div>
+    <div style="text-align: center;margin-top: 100px;">
+      <button id="tl" is="hub-btn">tl</button>
+      <button id="tr" is="hub-btn">tr</button>
+      <button id="tc" is="hub-btn">tc</button>
+    </div>
+    <div style="text-align: center;margin-top: 100px;">
+      <button id="rt" is="hub-btn">rt</button>
+      <button id="rm" is="hub-btn">rm</button>
+      <button id="rb" is="hub-btn">rb</button>
+    </div>
+    <div style="text-align: center;margin-top: 100px;">
+      <button id="lt" is="hub-btn">lt</button>
+      <button id="lm" is="hub-btn">lm</button>
+      <button id="lb" is="hub-btn">lb</button>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/tether@2.0.0-beta.5/dist/js/tether.min.js"></script>
@@ -38,15 +52,79 @@
     // }
 
     tips({
-      trigger: trigger,
-      text: 'world',
+      trigger: bl,
+      text: 'bottom left',
       position: 'bottom left',
       openOn: 'click'
     })
     tips({
-      trigger: trigger1,
-      text: 'hello',
+      trigger: br,
+      text: 'bottom right',
+      position: 'bottom right',
+      openOn: 'click'
+    })
+    tips({
+      trigger: bc,
+      text: 'bottom center',
+      position: 'bottom center',
+      openOn: 'click'
+    })
+    
+    tips({
+      trigger: tl,
+      text: 'top left',
+      position: 'top left',
+      openOn: 'click'
+    })
+    tips({
+      trigger: tr,
+      text: 'top right',
       position: 'top right',
+      openOn: 'click'
+    })
+    tips({
+      trigger: tc,
+      text: 'top center',
+      position: 'top center',
+      openOn: 'click'
+    })
+
+
+    tips({
+      trigger: rt,
+      text: 'right top',
+      position: 'right top',
+      openOn: 'click'
+    })
+    tips({
+      trigger: rm,
+      text: 'right middle',
+      position: 'right middle',
+      openOn: 'click'
+    })
+    tips({
+      trigger: rb,
+      text: 'right bottom',
+      position: 'right bottom',
+      openOn: 'click'
+    })
+
+    tips({
+      trigger: lt,
+      text: 'left top',
+      position: 'left top',
+      openOn: 'click'
+    })
+    tips({
+      trigger: lm,
+      text: 'left middle',
+      position: 'left middle',
+      openOn: 'click'
+    })
+    tips({
+      trigger: lb,
+      text: 'left bottom',
+      position: 'left bottom',
       openOn: 'click'
     })
   </script>

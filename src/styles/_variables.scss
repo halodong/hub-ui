@@ -257,10 +257,15 @@ $input-group-addon-border-color:        $input-border-color !default;
 
 
 // Tips
-$horiz-arrow-offset: (
-  ('left', '-100%'),
+$horiz-arrow-offset-horiz: (
+  ('left', '-150%'),
   ('right', '50%'),
   ('center', '-50%'),
+);
+$horiz-arrow-offset-vert: (
+  ('top', '-150%'),
+  ('bottom', '50%'),
+  ('middle', '-50%'),
 );
 $positionMap: (
     'bottom': 'top',
