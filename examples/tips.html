@@ -20,11 +20,12 @@
 </head>
 
 <body>
-  <div style="width: 400px; height: 120vh; margin: 10px auto">
+  <div style="width: 400px; height: 120vh; margin: 50px auto">
     <div style="text-align: center">
       <button id="trigger" is="hub-btn">trigger</button>
+      <span id="trigger1">trigger1</span>
     </div>
-    <div style="text-align: center;position: relative;"><span id="trigger1">trigger1</span></div>
+    <div style="text-align: center;position: relative;"></div>
     <div id="el" class="hide"></div>
   </div>
 
@@ -35,10 +36,19 @@
     //   new drop(el, trigger)
     //   el.classList.remove('hide')
     // }
+
+    tips({
+      trigger: trigger,
+      text: 'world',
+      position: 'bottom left',
+      openOn: 'click'
+    })
     tips({
       trigger: trigger1,
+      text: 'hello',
+      position: 'top right',
+      openOn: 'click'
     })
-
   </script>
 </body>
 

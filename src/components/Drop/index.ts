@@ -29,8 +29,7 @@ const defaults = {
   focusDelay: null,
   blurDelay: null,
   hoverOpenDelay: null,
-  hoverCloseDelay: null,
-  tetherOptions: {}
+  hoverCloseDelay: null
 }
 const MIRROR_ATTACH = {
   left: 'right',
@@ -46,7 +45,7 @@ const allDrops: any = {}
 function sortAttach (str): string {
   let [first, second] = str.split(' ')
   if (['left', 'right'].includes(first)) {
-    [first, second] = [second, first]
+    ;[first, second] = [second, first]
   }
   return [first, second].join(' ')
 }
@@ -174,6 +173,11 @@ export class Drop extends Evented {
     this.content = document.createElement('div')
     addClass(this.content, `${classPrefix}-content`)
 
+    console.log(this.content)
+    if (this.content != null && this.options.contentClasses != null) {
+      addClass(this.content, this.options.contentClasses)
+    }
+
     if (typeof this.options.content === 'function') {
       const generateAndSetContent = (): void => {
         // content function might return a string or an element
@@ -212,7 +216,7 @@ export class Drop extends Evented {
     dropAttach = dropAttach.join(' ')
 
     const constraints: any[] = []
-    if (this.options.constrainToScrollParent != null) {
+    if (this.options.constrainToScrollParent !== false) {
       constraints.push({
         to: 'scrollParent',
         pin: 'top, bottom',
@@ -249,10 +253,8 @@ export class Drop extends Evented {
       constraints: constraints,
       addTargetClasses: this.options.addTargetClasses
     }
-
-    if (this.options.tetherOptions !== false) {
-      this.tether = new Tether({ ...opts, ...this.options.tetherOptions })
-    }
+    console.log('tether', opts)
+    this.tether = new Tether({ ...opts })
   }
 
   setupEvents (): void {
@@ -280,12 +282,18 @@ export class Drop extends Evented {
         }
 
         // Clicking inside dropdown
-        if (this.drop != null && (event.target === this.drop || this.drop.contains(event.target))) {
+        if (
+          this.drop != null &&
+          (event.target === this.drop || this.drop.contains(event.target))
+        ) {
           return
         }
 
         // Clicking target
-        if (event.target === this.target || this.target.contains(event.target)) {
+        if (
+          event.target === this.target ||
+          this.target.contains(event.target)
+        ) {
           return
         }
 
@@ -306,15 +314,17 @@ export class Drop extends Evented {
       if (outTimeout != null) {
         clearTimeout(outTimeout)
       } else {
-        const optionsDelay = event.type === 'focus'
-          ? this.options.focusDelay
-          : this.options.hoverOpenDelay
-        inTimeout = setTimeout(() => {
-          this.open(event)
-          inTimeout = null
-        }, (optionsDelay != null
-          ? optionsDelay
-          : this.options.openDelay))
+        const optionsDelay =
+          event.type === 'focus'
+            ? this.options.focusDelay
+            : this.options.hoverOpenDelay
+        inTimeout = setTimeout(
+          () => {
+            this.open(event)
+            inTimeout = null
+          },
+          optionsDelay != null ? optionsDelay : this.options.openDelay
+        )
       }
     }
 
@@ -322,15 +332,17 @@ export class Drop extends Evented {
       if (inTimeout != null) {
         clearTimeout(inTimeout)
       } else {
-        const optionsDelay = event.type === 'blur'
-          ? this.options.blurDelay
-          : this.options.hoverCloseDelay
-        outTimeout = setTimeout(() => {
-          this.close(event)
-          outTimeout = null
-        }, (optionsDelay != null
-          ? optionsDelay
-          : this.options.openDelay))
+        const optionsDelay =
+          event.type === 'blur'
+            ? this.options.blurDelay
+            : this.options.hoverCloseDelay
+        outTimeout = setTimeout(
+          () => {
+            this.close(event)
+            outTimeout = null
+          },
+          optionsDelay != null ? optionsDelay : this.options.openDelay
+        )
       }
     }
 
