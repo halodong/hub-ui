@@ -8,8 +8,8 @@ cache:
     - node_modules
 
 install:
-  - pnpm
+  - yarn
 
 script:
-  - pnpm run lint
-  - pnpm run test
+  - yarn run lint
+  - yarn run test
