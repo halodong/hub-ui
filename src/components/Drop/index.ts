@@ -1,9 +1,6 @@
+import { hasClass } from 'utils'
 import { Tether, addClass, removeClass, Evented } from '../../plugins/tether.js'
 
-const hasClass = (el: HTMLElement, className: string): boolean => {
-  console.log('hasclass', el.classList.contains(className), className)
-  return el.classList.contains(className)
-}
 // const defaults = {
 //   /**
 //    * attachment: A string of the form 'vert-attachment horiz-attachment'
@@ -25,7 +22,6 @@ const defaults = {
   remove: true,
   openDelay: 0,
   closeDelay: 50,
-  // inherited from openDelay and closeDelay if not explicitly defined
   focusDelay: null,
   blurDelay: null,
   hoverOpenDelay: null,
@@ -40,7 +36,7 @@ const MIRROR_ATTACH = {
   center: 'center'
 }
 const clickEvents = ['click']
-const drops: any[] = []
+const drops: Drop[] = []
 const allDrops: any = {}
 function sortAttach (str): string {
   let [first, second] = str.split(' ')
