@@ -1,0 +1,17 @@
+.hub-msg {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 8px 14px;
+    max-width: 344px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-weight: $font-weight-normal;
+    word-break: break-all;
+    background-color: $gray-100;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 20%);
+}
