@@ -1,18 +1,14 @@
 import { hasClass } from 'utils'
 import { Tether, addClass, removeClass, Evented } from '../../plugins/tether.js'
 
-// const defaults = {
-//   /**
-//    * attachment: A string of the form 'vert-attachment horiz-attachment'
-//    * vert-attachment can be any of 'top', 'middle', 'bottom'
-//    * horiz-attachment can be any of 'left', 'center', 'right'
-//    */
-//   pin: 'top, bottom',
-//   attachment: 'top center',
-//   targetAttachment: 'bottom center'
-// }
 const classPrefix = 'drop'
 const defaults = {
+  /**
+   * Based on tether, the position property is divided into two fields, vertical and horizontal.
+   *
+   * vert-attachment can be any of 'top', 'middle', 'bottom'
+   * horiz-attachment can be any of 'left', 'center', 'right'
+   */
   position: 'bottom left',
   openOn: 'click',
   beforeClose: null,
