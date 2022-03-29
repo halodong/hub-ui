@@ -14,10 +14,8 @@ export const Tips = (options): void => {
   const params = { ...defaults, ...options }
 
   const { trigger, position, openOn, text } = params
-  const el = document.createElement('div')
   const direction: string = position.split(' ')[0]
   const offset: string = position.split(' ')[1]
-  el.id = 'el'
   const drop = new Drop({
     target: trigger,
     content: `<div class="hub-tips-content">${(text as string)}</div>`,
