@@ -1,17 +1,71 @@
 .hub-msg {
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.hub-msg-list {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  right: 0;
+  list-style: none;
+}
+
+.hub-msg-item {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  div {
     display: flex;
     align-items: center;
-    margin: 0 auto;
-    padding: 8px 14px;
-    max-width: 344px;
+    padding: 10px 16px;
+    background: #fff;
     border-radius: 2px;
-    box-sizing: border-box;
-    font-weight: $font-weight-normal;
-    word-break: break-all;
-    background-color: $gray-100;
-    box-shadow: 0 3px 7px rgb(0 0 0 / 20%);
+    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
+      0 9px 28px 8px rgb(0 0 0 / 5%);
+  }
+  .hub-msg-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 淡出动画 */
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }

@@ -11,15 +11,24 @@
 <body>
     <div style="width: 100vw; height: 100vh;display: flex;justify-content: center;align-items: center;">
         <button id="success" is="hub-btn">success</button>
+        <button id="warning" is="hub-btn">warning</button>
+        <button id="info" is="hub-btn">info</button>
+        <button id="error" is="hub-btn">error</button>
     </div>
 
     <script src="../dist/index.js"></script>
     <script>
         success.onclick = () => {
-            message({
-                text: 'success',
-                type: 'success'
-            })
+            message.success('success')
+        }
+        warning.onclick = () => {
+            message.warning('warning')
+        }
+        info.onclick = () => {
+            message.info('info')
+        }
+        error.onclick = () => {
+            message.error('error')
         }
     </script>
 </body>
