@@ -28,8 +28,3 @@ export const Tips = (options): void => {
   console.log('tips', drop)
 }
 ;(window as any).tips = Tips
-// const positionMap = {
-//   'bottom center': 'top center',
-//   'top center': 'bottom center',
-//   'middle left': 'right'
-// }
