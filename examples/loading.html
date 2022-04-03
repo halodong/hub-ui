@@ -12,12 +12,14 @@
     <div style="width: 95vw; height: 100vh; margin: 10px auto">
         <button id='base' is="hub-btn">base</button>
         <div id='loading1' style="height: 400px;width: 400px;background-color: blue;--color:rgb(255,255,255)"></div>
+        <div id='loading2' style="height: 400px;width: 400px;background-color: blue;--color:rgb(255,255,255)"></div>
     </div>
 
     <script src="../dist/index.js"></script>
     <script>
         base.loading()
         loading1.loading()
+        loading2.loading(true,{size:'lg'})
         setTimeout(() => {
             base.loading(false)
             loading1.loading(false)
