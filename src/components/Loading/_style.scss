@@ -12,10 +12,8 @@
     width: 20px;
     height: 20px;
     margin: auto;
-    border: 2px solid #000;
-    border-top-color: rgba(0, 0, 0, 0.2);
-    border-right-color: rgba(0, 0, 0, 0.2);
-    border-bottom-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--color, $primary);
+    border-top-color: transparent;
     border-radius: 100%;
     animation: circle infinite 0.75s linear;
   }

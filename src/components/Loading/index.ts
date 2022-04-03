@@ -1,17 +1,24 @@
 const loadingClassName = 'hub-loading'
-
-const Loading = (el, options?): void => {
+const defaultOptions = {
+  row: '2'
+}
+const Loading = (el: HTMLElement, options: Options): void => {
   el.classList.add(loadingClassName)
 }
-const unLoading = (el, options?): void => {
+const unLoading = (el: HTMLElement, options?): void => {
   el.classList.remove(loadingClassName)
 }
 Object.defineProperty(HTMLElement.prototype, 'loading', {
   value (val: boolean = true, options?) {
+    const opts: Options = { ...defaultOptions, ...options }
     if (val) {
-      Loading(this, options)
+      Loading(this, opts)
     } else {
-      unLoading(this, options)
+      unLoading(this, opts)
     }
   }
 })
+
+export interface Options {
+  row: string
+}
