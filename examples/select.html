@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example1</title>
+</head>
+
+<body>
+  <div style="width: 400px; height: 100vh; margin: 10px auto">
+
+    <hub-select id="select"></hub-select>
+  </div>
+
+  <script src="../dist/index.js"></script>
+  <script>
+    select.datasource = [
+      {
+        label: 'slect1',
+        value: 'select1'
+      },
+      {
+        label: 'slect2',
+        value: 'select2',
+        disable: true
+      },
+      {
+        label: 'slect3',
+        value: 'select3'
+      },
+    ]
+    select.setAttribute('datasource',[
+      {
+        label: 'slect1',
+        value: 'select1'
+      }
+    ])
+  </script>
+</body>
+
+</html>
