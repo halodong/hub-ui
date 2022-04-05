@@ -1,32 +1,32 @@
 .hub-select {
   position: relative;
   width: 100%;
-  .hub-select-drop {
+  .select-drop {
     list-style: none;
     padding-left: 0;
     white-space: nowrap;
     background: $white;
     z-index: 100;
-    border: $menu-border-width solid $menu-border-color;
-    box-shadow: $submenu-box-shadow;
+    border: $tabs-border-width solid $tabs-border-color;
+    box-shadow: $subtab-box-shadow;
     width: 100%;
 
-    .hub-select-item {
-      padding: $menu-item-padding-y $menu-item-padding-x;
+    .select-item {
+      padding: $tabs-item-padding-y $tabs-item-padding-x;
       cursor: pointer;
-      transition: $menu-transition;
+      transition: $tabs-transition;
       color: $body-color;
       display: flex;
       align-items: center;
       justify-content: space-between;
       animation: fadeIn 0.3s ease forwards;
       &.is-selected {
-        color: $menu-item-active-color;
+        color: $tabs-item-active-color;
         font-weight: $font-weight-bold;
       }
       &.is-disabled {
         background-color: $input-disabled-bg;
-        color: $menu-item-disabled-color;
+        color: $tabs-item-disabled-color;
         pointer-events: none;
         cursor: default;
       }
@@ -35,7 +35,7 @@
       }
     }
   }
-  .hub-select-icon {
+  .select-icon {
     position: absolute;
     right: 20px;
     top: 50%;
