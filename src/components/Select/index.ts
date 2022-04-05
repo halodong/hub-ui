@@ -84,6 +84,8 @@ class HubSelect extends HTMLElement {
     this.input.addEventListener('click', this.handleOpen)
     this.drop?.content?.addEventListener('click', this.handleSelect)
   }
+
+  // TODO multiple
 }
 
 customElements.define('hub-select', HubSelect)
