@@ -1,5 +1,5 @@
 import { hasClass } from 'utils'
-import { baseClassName, itemClassName, itemDisabledClassName, itemActiveClassName } from './constant'
+import { baseClassName, itemClassName, disabledClassName, activeClassName } from './classNames'
 
 class HubTabs extends HTMLElement {
   public container: HTMLUListElement
@@ -36,7 +36,7 @@ class HubTabs extends HTMLElement {
   getItemClassName (data): string {
     const initial = [itemClassName]
     if (data.disable === true) {
-      initial.push(itemDisabledClassName)
+      initial.push(disabledClassName)
     }
     return initial.join(' ')
   }
@@ -53,13 +53,12 @@ class HubTabs extends HTMLElement {
 
   handleClick (e): void {
     if (e.target.tagName.toLowerCase() !== 'li') return
-    if (hasClass(e.target, itemDisabledClassName)) return
+    if (hasClass(e.target, disabledClassName)) return
     if (this.active != null) {
-      this.active.classList.remove(itemActiveClassName)
+      this.active.classList.remove(activeClassName)
     }
     this.active = e.target as HTMLLIElement
-    this.active.classList.add(itemActiveClassName)
-    console.log(this.active.classList)
+    this.active.classList.add(activeClassName)
   }
 
   bindEvent (): void {

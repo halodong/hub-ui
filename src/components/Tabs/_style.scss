@@ -9,7 +9,6 @@
     cursor: pointer;
     color: #2c2c3b;
     text-decoration: none;
-    font-size: 18px;
     border-bottom: $tabs-item-active-border-width solid transparent;
     transition: $tabs-transition;
     &.is-disabled {
