@@ -1,0 +1,42 @@
+.hub-tabs {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+
+  > .tabs-item {
+    position: relative;
+    padding: $tabs-item-padding-y $tabs-item-padding-x;
+    cursor: pointer;
+    color: #2c2c3b;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: $tabs-item-active-border-width solid transparent;
+    transition: $tabs-transition;
+    &.is-disabled {
+      color: $tabs-item-disabled-color;
+      pointer-events: none;
+      cursor: default;
+    }
+    &:hover {
+      color: $tabs-item-active-color;
+    }
+    &.is-active {
+      border-bottom: $tabs-item-active-border-width solid $tabs-item-active-color;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: $tabs-item-active-border-width;
+      bottom: -2px;
+      left: 0;
+      background-color: $tabs-item-active-color;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example1</title>
+</head>
+
+<body>
+  <div style="width: 400px; height: 100vh; margin: 10px auto">
+
+    <hub-tabs id="tabs"></hub-tabs>
+  </div>
+
+  <script src="../dist/index.js"></script>
+  <script>
+    tabs.datasource = [
+      {
+        label: 'tabs1',
+        value: 'tabs1'
+      },
+      {
+        label: 'tabs2',
+        value: 'tabs2',
+        disable: true
+      },
+      {
+        label: 'tabs3',
+        value: 'tabs3'
+      },
+    ]
+    tabs.value = 'tabs'
+  </script>
+</body>
+
+</html>
