@@ -164,8 +164,6 @@ export class Drop extends Evented {
 
     this.content = document.createElement('div')
     addClass(this.content, `${classPrefix}-content`)
-
-    console.log(this.content)
     if (this.content != null && this.options.contentClasses != null) {
       addClass(this.content, this.options.contentClasses)
     }
@@ -245,7 +243,6 @@ export class Drop extends Evented {
       constraints: constraints,
       addTargetClasses: this.options.addTargetClasses
     }
-    console.log('tether', opts)
     this.tether = new Tether({ ...opts })
   }
 
@@ -378,7 +375,6 @@ export class Drop extends Evented {
     if (this.isOpened()) {
       return
     }
-    console.log('open')
     if (this.drop != null && this.drop.parentNode == null) {
       document.body.appendChild(this.drop)
     }
@@ -430,7 +426,6 @@ export class Drop extends Evented {
     }
 
     ;(this as any).trigger('close')
-    console.log('close')
     if (typeof this.tether !== 'undefined') {
       this.tether.disable()
     }

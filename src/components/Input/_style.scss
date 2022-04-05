@@ -1,6 +1,5 @@
 .hub-input {
   width: 100%;
-  margin-bottom: 30px;
   padding: $input-padding-y $input-padding-x;
   font-family: $input-font-family;
   font-size: $input-font-size;
@@ -30,13 +29,15 @@
     // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
   }
-  &:disabled,
-  &[readonly] {
+  &:disabled {
     background-color: $input-disabled-bg;
     border-color: $input-disabled-border-color;
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
     cursor: not-allowed;
+  }
+  &[readonly] {
+    opacity: 1;
   }
 }
 

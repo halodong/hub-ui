@@ -40,32 +40,6 @@
   animation: fadeIn 0.3s ease forwards;
 }
 
-/* 淡入动画 */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 淡出动画 */
 .fade-out {
   animation: fadeOut 0.3s ease forwards;
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
 }

@@ -31,12 +31,10 @@
         value: 'select3'
       },
     ]
-    select.setAttribute('datasource',[
-      {
-        label: 'slect1',
-        value: 'select1'
-      }
-    ])
+    select.value = 'select1'
+    select.selectCallback = (value)=>{
+      console.log(value)
+    }
   </script>
 </body>
 
