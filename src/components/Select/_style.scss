@@ -25,6 +25,7 @@
         font-weight: $font-weight-bold;
       }
       &.is-disabled {
+        background-color: $input-disabled-bg;
         color: $menu-item-disabled-color;
         pointer-events: none;
         cursor: default;
