@@ -12,6 +12,7 @@
   <div style="width: 400px; height: 100vh; margin: 10px auto">
 
     <hub-tabs id="tabs"></hub-tabs>
+    <hub-tabs id="tabs1" defaultactive="index2"></hub-tabs>
   </div>
 
   <script src="../dist/index.js"></script>
@@ -33,6 +34,24 @@
     ]
     tabs.active = 'tabs1'
     tabs.selectCallback = (key) => {
+      console.log(key)
+    }
+
+    tabs1.datasource = [
+      {
+        label: 'label1',
+        index: 'index1'
+      },
+      {
+        label: 'label2',
+        index: 'index2',
+      },
+      {
+        label: 'label3',
+        index: 'index3'
+      },
+    ]
+    tabs1.selectCallback = (key) => {
       console.log(key)
     }
   </script>
