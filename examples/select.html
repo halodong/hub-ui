@@ -11,8 +11,8 @@
 <body>
   <div style="width: 400px; height: 100vh; margin: 10px auto">
 
-    <hub-select id="select"></hub-select>
-    <hub-select id="select2" multiple></hub-select>
+    <hub-select id="select" placeholder="单选"></hub-select>
+    <hub-select id="select2" multiple placeholder="多选"></hub-select>
   </div>
 
   <script src="../dist/index.js"></script>
@@ -32,7 +32,6 @@
         index: 'select3'
       },
     ]
-    select.index = 'select1'
     select.selectCallback = (...args)=>{
       console.log(args)
     }

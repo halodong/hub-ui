@@ -27,6 +27,8 @@ class HubSelect extends HTMLElement {
     this.container = document.createElement('div')
     this.container.classList.add(baseClassName)
     this.input = document.createElement('input')
+    const placeholder = this.getAttribute('placeholder')
+    if (placeholder != null) this.input.placeholder = placeholder
     this.input.readOnly = true
     this.input.classList.add('hub-input')
     // TODO 初始选中的值
@@ -114,6 +116,23 @@ class HubSelect extends HTMLElement {
     }
   }
 
+  renderMultiple = (): void => {
+    if (this.multipleContainer == null) {
+      this.multipleContainer = document.createElement('div')
+      this.multipleContainer.classList.add('hub-selected-tags')
+      this.container.append(this.multipleContainer)
+    }
+    const html = this.selectedIndexs.map((dataIndex) => {
+      const label = this._datasource.find(data => data.index === dataIndex).label as string
+      return `<span class="${'hub-tag'}" dataindex="${dataIndex}">${label}${close}</span>`
+    })
+    this.multipleContainer.innerHTML = html.join('')
+    this.multipleContainer.addEventListener('click', this.handleCloseIcon)
+    if (this.selectedIndexs.length !== 0 && this.multiple) {
+      this.input.placeholder = ''
+    }
+  }
+
   handleSelect = (e): void => {
     if (e.target.tagName.toLowerCase() !== 'li') return
     if (hasClass(e.target, disabledClassName)) return
@@ -151,26 +170,10 @@ class HubSelect extends HTMLElement {
     }
   }
 
-  renderMultiple = (): void => {
-    if (this.multipleContainer == null) {
-      this.multipleContainer = document.createElement('div')
-      this.multipleContainer.classList.add('hub-selected-tags')
-      this.container.append(this.multipleContainer)
-    }
-    const html = this.selectedIndexs.map((dataIndex) => {
-      const label = this._datasource.find(data => data.index === dataIndex).label as string
-      return `<span class="${'hub-tag'}" dataindex="${dataIndex}">${label}${close}</span>`
-    })
-    this.multipleContainer.innerHTML = html.join('')
-    this.multipleContainer.addEventListener('click', this.handleCloseIcon)
-  }
-
   bindEvent (): void {
     this.input.addEventListener('click', this.handleOpen)
     this.drop?.content?.addEventListener('click', this.handleSelect)
   }
-
-  // TODO multiple
 }
 
 customElements.define(baseClassName, HubSelect)

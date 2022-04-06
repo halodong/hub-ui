@@ -22,7 +22,6 @@
       animation: fadeIn 0.3s ease forwards;
       &.is-selected {
         color: $tabs-item-active-color;
-        font-weight: $font-weight-bold;
         background-color: rgba($primary, 0.1);
       }
       &.is-disabled {
