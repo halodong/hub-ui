@@ -167,6 +167,8 @@ class HubSelect extends HTMLElement {
       console.log(e.target.parentNode.innerText)
       this.selectedIndexs = this.selectedIndexs.filter(v => v !== e.target.parentNode.getAttribute('dataindex'))
       e.target.parentNode.remove()
+      this.drop?.close(e)
+      this.refresh()
     }
   }
 
