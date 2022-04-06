@@ -20,7 +20,7 @@ class HubSelect extends HTMLElement {
   public multiple: boolean
   public selectedIndexs: string[] = []
   public _datasource: any[] = []
-  public _onselect: (key?: string) => void = () => {}
+  public _onselect: (key?: string | string[]) => void = () => {}
 
   constructor () {
     super()
@@ -54,12 +54,12 @@ class HubSelect extends HTMLElement {
     return this._datasource
   }
 
-  public set selectCallback (onselect: (key?: string) => void) {
+  public set selectCallback (onselect: (key?: string | string[]) => void) {
     this._onselect = onselect
     this.refresh()
   }
 
-  public get selectCallback (): (key?: string) => void {
+  public get selectCallback (): (key?: string | string[]) => void {
     return this._onselect
   }
 
@@ -76,18 +76,16 @@ class HubSelect extends HTMLElement {
   }
 
   refresh (): void {
-    const html = this._datasource.map(
-      (data) => {
-        let isSelected = false
-        if (this.selectedIndexs.includes(data.index)) {
-          isSelected = true
-        }
-        return `<li class="${this.getItemClassName(data, isSelected)}" dataindex="${data.index as string}">${
-          data.label as string
-        }</li>`
+    const html = this._datasource.map((data) => {
+      let isSelected = false
+      if (this.selectedIndexs.includes(data.index)) {
+        isSelected = true
       }
-
-    )
+      return `<li class="${this.getItemClassName(
+        data,
+        isSelected
+      )}" dataindex="${data.index as string}">${data.label as string}</li>`
+    })
     if (this.drop?.content != null) {
       this.drop.content.innerHTML = `<ul class="${dropClassName}" style="width:${
         this.input.offsetWidth
@@ -123,7 +121,8 @@ class HubSelect extends HTMLElement {
       this.container.append(this.multipleContainer)
     }
     const html = this.selectedIndexs.map((dataIndex) => {
-      const label = this._datasource.find(data => data.index === dataIndex).label as string
+      const label = this._datasource.find((data) => data.index === dataIndex)
+        .label as string
       return `<span class="${'hub-tag'}" dataindex="${dataIndex}">${label}${close}</span>`
     })
     this.multipleContainer.innerHTML = html.join('')
@@ -145,10 +144,13 @@ class HubSelect extends HTMLElement {
         e.target.classList.add(selectedClassName)
       }
       if (this.selectedIndexs.includes(dataIndex)) {
-        this.selectedIndexs = this.selectedIndexs.filter(idx => idx !== dataIndex)
+        this.selectedIndexs = this.selectedIndexs.filter(
+          (idx) => idx !== dataIndex
+        )
       } else {
         this.selectedIndexs.push(dataIndex)
       }
+      this.selectCallback(this.selectedIndexs)
       this.renderMultiple()
     } else {
       this.input.value = label
@@ -163,9 +165,9 @@ class HubSelect extends HTMLElement {
 
   handleCloseIcon = (e): void => {
     if (hasClass(e.target, iconCommonClassName)) {
-      console.log(e.target.parentNode.getAttribute('dataindex'))
-      console.log(e.target.parentNode.innerText)
-      this.selectedIndexs = this.selectedIndexs.filter(v => v !== e.target.parentNode.getAttribute('dataindex'))
+      this.selectedIndexs = this.selectedIndexs.filter(
+        (v) => v !== e.target.parentNode.getAttribute('dataindex')
+      )
       e.target.parentNode.remove()
       this.drop?.close(e)
       this.refresh()
