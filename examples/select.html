@@ -12,6 +12,7 @@
   <div style="width: 400px; height: 100vh; margin: 10px auto">
 
     <hub-select id="select"></hub-select>
+    <hub-select id="select2" multiple></hub-select>
   </div>
 
   <script src="../dist/index.js"></script>
@@ -19,21 +20,40 @@
     select.datasource = [
       {
         label: 'slect1',
-        value: 'select1'
+        index: 'select1'
       },
       {
         label: 'slect2',
-        value: 'select2',
+        index: 'select2',
         disable: true
       },
       {
         label: 'slect3',
-        value: 'select3'
+        index: 'select3'
       },
     ]
-    select.value = 'select1'
-    select.selectCallback = (value)=>{
-      console.log(value)
+    select.index = 'select1'
+    select.selectCallback = (...args)=>{
+      console.log(args)
+    }
+
+    select2.datasource = [
+      {
+        label: 'slect1',
+        index: 'select1'
+      },
+      {
+        label: 'slect2',
+        index: 'select2',
+        disable: true
+      },
+      {
+        label: 'slect3',
+        index: 'select3'
+      },
+    ]
+    select2.selectCallback = (...args)=>{
+      console.log(args)
     }
   </script>
 </body>

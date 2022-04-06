@@ -23,6 +23,7 @@
       &.is-selected {
         color: $tabs-item-active-color;
         font-weight: $font-weight-bold;
+        background-color: rgba($primary, 0.1);
       }
       &.is-disabled {
         background-color: $input-disabled-bg;
@@ -40,5 +41,35 @@
     right: 20px;
     top: 50%;
     transform: translate(0, -50%);
+  }
+}
+
+.hub-selected-tags {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .hub-tag {
+    height: 80%;
+    padding: 2px 5px;
+    box-sizing: border-box;
+    border: 1px solid rgba($primary, 0.2);
+    margin-left: 6px;
+    border-radius: 3px;
+    color: $primary;
+    background-color: rgba($primary, 0.1);
+  }
+  .hub-icon {
+    margin-left: 3px;
+    cursor: pointer;
+    &:hover {
+      color: darken($primary, 10%);
+    }
   }
 }
