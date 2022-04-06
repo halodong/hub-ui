@@ -1,9 +1,14 @@
 import { hasClass } from 'utils'
-import { baseClassName, itemClassName, disabledClassName, activeClassName } from './classNames'
+import {
+  baseClassName,
+  itemClassName,
+  disabledClassName,
+  activeClassName
+} from './classNames'
 
 class HubTabs extends HTMLElement {
   public container: HTMLUListElement
-  public active: HTMLLIElement | null = null
+  public activeTab: HTMLLIElement | null = null
   public _datasource: any[] = []
   public _onselect: (key?: string) => void = () => {}
   constructor () {
@@ -44,21 +49,22 @@ class HubTabs extends HTMLElement {
   refresh (): void {
     const html = this._datasource.map(
       (data) =>
-        `<li class="${this.getItemClassName(data)}">${
-          data.label as string
-        }</li>`
+        `<li class="${this.getItemClassName(data)}" dataindex="${
+          data.index as string
+        }">${data.label as string}</li>`
     )
     this.container.innerHTML = html.join('')
   }
 
-  handleClick (e): void {
+  handleClick = (e): void => {
     if (e.target.tagName.toLowerCase() !== 'li') return
     if (hasClass(e.target, disabledClassName)) return
-    if (this.active != null) {
-      this.active.classList.remove(activeClassName)
+    if (this.activeTab != null && hasClass(this.activeTab, activeClassName)) {
+      this.activeTab.classList.remove(activeClassName)
     }
-    this.active = e.target as HTMLLIElement
-    this.active.classList.add(activeClassName)
+    this.activeTab = e.target as HTMLLIElement
+    this.activeTab.classList.add(activeClassName)
+    this.selectCallback(e.target.getAttribute('dataindex'))
   }
 
   bindEvent (): void {
