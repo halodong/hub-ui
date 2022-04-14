@@ -8,7 +8,7 @@ export default {
     {
       name: 'hubui',
       file: 'dist/index.js',
-      format: 'umd'
+      format: 'es'
     }
   ],
   plugins: [ts({ declaration: false, module: 'ES6' }), resolve(), postCss()]
