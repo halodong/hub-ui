@@ -6,7 +6,7 @@ export class HubBtn extends HTMLButtonElement {
 
   public set btnType (type: BtnType) {
     type != null && this.setAttribute('btnType', type)
-    this.className = this.getClassName()
+    this.classList.add(...this.getClassName())
   }
 
   public get size (): BtnSize {
@@ -14,7 +14,7 @@ export class HubBtn extends HTMLButtonElement {
     return size
   }
 
-  public getClassName (): string {
+  public getClassName (): string[] {
     const baseClassNameArr = ['hub-btn']
     if (this.btnType != null) {
       baseClassNameArr.push(`btn-${this.btnType}`)
@@ -22,11 +22,11 @@ export class HubBtn extends HTMLButtonElement {
     if (this.size != null) {
       baseClassNameArr.push(`btn-${this.size}`)
     }
-    return baseClassNameArr.join(' ')
+    return baseClassNameArr
   }
 
   connectedCallback (): void {
-    this.className = this.getClassName()
+    this.classList.add(...this.getClassName())
   }
 }
 

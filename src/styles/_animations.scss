@@ -1,0 +1,50 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes circle {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flipup {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes flipdown {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}

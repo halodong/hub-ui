@@ -15,6 +15,8 @@ export class HubInput extends HTMLInputElement {
   connectedCallback (): void {
     this.className = this.getClassName()
   }
+
+  // TODO customElements not extend,support icon
 }
 
 window.customElements.define('hub-input', HubInput, { extends: 'input' })

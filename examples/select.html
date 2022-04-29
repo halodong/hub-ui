@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example1</title>
+</head>
+
+<body>
+  <div style="width: 400px; height: 100vh; margin: 10px auto">
+
+    <hub-select id="select" placeholder="单选"></hub-select>
+    <hub-select id="select2" multiple placeholder="多选"></hub-select>
+  </div>
+
+  <script src="../dist/index.js"></script>
+  <script>
+    select.datasource = [
+      {
+        label: 'slect1',
+        index: 'select1'
+      },
+      {
+        label: 'slect2',
+        index: 'select2',
+        disable: true
+      },
+      {
+        label: 'slect3',
+        index: 'select3'
+      },
+    ]
+    select.selectCallback = (...args)=>{
+      console.log(args)
+    }
+
+    select2.datasource = [
+      {
+        label: 'slect1',
+        index: 'select1'
+      },
+      {
+        label: 'slect2',
+        index: 'select2',
+        disable: true
+      },
+      {
+        label: 'slect3',
+        index: 'select3'
+      },
+    ]
+    select2.selectCallback = (...args)=>{
+      console.log(args)
+    }
+  </script>
+</body>
+
+</html>

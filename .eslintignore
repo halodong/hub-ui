@@ -4,3 +4,4 @@ dist
 build
 
 src/plugins/*
+examples

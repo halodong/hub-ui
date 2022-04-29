@@ -1,0 +1,74 @@
+.hub-select {
+  position: relative;
+  width: 100%;
+  .select-drop {
+    list-style: none;
+    padding-left: 0;
+    white-space: nowrap;
+    background: $white;
+    z-index: 100;
+    border: $tabs-border-width solid $tabs-border-color;
+    box-shadow: $subtab-box-shadow;
+    width: 100%;
+
+    .select-item {
+      padding: $tabs-item-padding-y $tabs-item-padding-x;
+      cursor: pointer;
+      transition: $tabs-transition;
+      color: $body-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeIn 0.3s ease forwards;
+      &.is-selected {
+        color: $tabs-item-active-color;
+        background-color: rgba($primary, 0.1);
+      }
+      &.is-disabled {
+        background-color: $input-disabled-bg;
+        color: $tabs-item-disabled-color;
+        pointer-events: none;
+        cursor: default;
+      }
+      &:hover {
+        background-color: rgba($primary, 0.1);
+      }
+    }
+  }
+  .select-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+.hub-selected-tags {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .hub-tag {
+    height: 80%;
+    padding: 2px 5px;
+    box-sizing: border-box;
+    border: 1px solid rgba($primary, 0.2);
+    margin-left: 6px;
+    border-radius: 3px;
+    color: $primary;
+    background-color: rgba($primary, 0.1);
+  }
+  .hub-icon {
+    margin-left: 3px;
+    cursor: pointer;
+    &:hover {
+      color: darken($primary, 10%);
+    }
+  }
+}

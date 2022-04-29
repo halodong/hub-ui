@@ -5,5 +5,8 @@ import './components/Textarea'
 import './components/Drop'
 import './components/Tips'
 import './components/Message'
+import './components/Select'
+import './components/Loading'
+import './components/Tabs'
 
 import './styles/index.scss'

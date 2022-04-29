@@ -14,9 +14,9 @@
     <button is="hub-btn" btnType="primary">primary</button>
     <button is="hub-btn" btnType="danger">danger</button>
     <button is="hub-btn" btnType="normal">normal</button>
-    <button id='base' is="hub-btn" size='lg'>base</button>
-    <button id='base' is="hub-btn" size='sm'>base</button>
-    <button id='base' is="hub-btn" disabled>base</button>
+    <button is="hub-btn" size='lg'>base</button>
+    <button is="hub-btn" size='sm'>base</button>
+    <button is="hub-btn" disabled>base</button>
     <button btnType="primary"is="hub-btn" disabled>base</button>
 
     <button>default</button>
@@ -24,6 +24,10 @@
 
   <script src="../dist/index.js"></script>
   <script>
+    base.loading()
+    setTimeout(()=>{
+      base.loading(false)
+    },3000)
   </script>
 </body>
 

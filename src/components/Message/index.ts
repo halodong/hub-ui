@@ -18,7 +18,7 @@ class Message {
 
   show (content: string, delay: number = 3000, type: string): void {
     const html = `
-    <li class="hub-msg-item fade-in" data-id="${Message.id}">
+    <li class="hub-msg-item fade-in" data-id="${String(Message.id)}">
         <div>
              ${icon[type] as string}
             <span>${content}</span>
@@ -47,7 +47,7 @@ class Message {
 
   hide (): void {
     const li = document.querySelector(
-      `li.message-item[data-id="${Message.id}"]`
+      `li.message-item[data-id="${String(Message.id)}"]`
     )
     if (li != null) {
       li.remove()
