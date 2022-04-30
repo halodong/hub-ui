@@ -1,22 +1,11 @@
-import { HubBtn } from '../src/components/Button'
+import { elHasClassName, renderHubBtn } from './testUtils'
 
-const renderHubBtn = (): HubBtn => {
-  const el = new HubBtn()
-  document.body.appendChild(el)
-  return el
-}
-const hasBaseClassName = (el: HubBtn): boolean => {
-  return el?.className.includes('hub-btn')
-}
-const elHasClassName = (el: HubBtn, className: string): boolean => {
-  return el?.classList.contains(className)
-}
 describe('test Button component', () => {
   it('should render the correct default button', () => {
     const el = renderHubBtn()
     expect(el.tagName).toEqual('BUTTON')
     expect(el.disabled).toBeFalsy()
-    expect(hasBaseClassName(el)).toBe(true)
+    expect(elHasClassName(el, 'hub-btn')).toBe(true)
   })
   it('should render the correct component based on different props', () => {
     const el = renderHubBtn()
