@@ -11,11 +11,6 @@ const hasBaseClassName = (el: HubBtn): boolean => {
 const elHasClassName = (el: HubBtn, className: string): boolean => {
   return el?.classList.contains(className)
 }
-test('hub-btn has corresponding className', () => {
-  const el = renderHubBtn()
-  expect(hasBaseClassName(el)).toBe(true)
-})
-
 describe('test Button component', () => {
   it('should render the correct default button', () => {
     const el = renderHubBtn()
