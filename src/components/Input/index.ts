@@ -6,8 +6,8 @@ export class HubInput extends HTMLInputElement {
 
   public getClassName (): string {
     const baseClassNameArr = ['hub-input']
-    if (this.size != null) {
-      baseClassNameArr.push(`input-size-${this.size}`)
+    if (this.inputSize != null) {
+      baseClassNameArr.push(`input-size-${this.inputSize}`)
     }
     return baseClassNameArr.join(' ')
   }
