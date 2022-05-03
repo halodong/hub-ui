@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "module": "esnext",
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "noLib": false,
     "baseUrl": "./src",
-    "target": "es6",
+    "target": "esnext",
     "sourceMap": true,
     "lib": ["ESNext", "DOM"],
     "allowSyntheticDefaultImports": true,
