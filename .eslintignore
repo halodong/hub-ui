@@ -5,3 +5,5 @@ build
 
 src/plugins/*
 examples
+
+*.md
