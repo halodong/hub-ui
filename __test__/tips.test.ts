@@ -30,5 +30,31 @@ describe('test Tips component', () => {
     btn.click()
     expect(document.querySelectorAll('.hub-tips').length).toBe(1)
     expect(document.querySelectorAll('.hub-tips-bottom-left').length).toBe(1)
+    btn.click()
+    expect(document.querySelectorAll('.hub-tips').length).toBe(0)
+    expect(document.querySelectorAll('.hub-tips-bottom-left').length).toBe(0)
+  })
+  it('should rendered tips element in document async', () => {
+    const btn = document.createElement('button')
+    document.body.appendChild(btn)
+    ;(window as any).tips({
+      trigger: btn,
+      text: 'bottom left',
+      position: 'bottom left',
+      openOn: 'hover',
+      delay: 1000
+    })
+    expect(document.querySelectorAll('.hub-tips').length).toBe(0)
+    expect(document.querySelectorAll('.hub-tips-bottom-left').length).toBe(0)
+    btn.dispatchEvent(new Event('mouseover'))
+    expect(document.querySelectorAll('.hub-tips').length).toBe(0)
+    expect(document.querySelectorAll('.hub-tips-bottom-left').length).toBe(0)
+    setTimeout(() => {
+      expect(document.querySelectorAll('.hub-tips').length).toBe(1)
+      expect(document.querySelectorAll('.hub-tips-bottom-left').length).toBe(1)
+    }, 1000)
+    btn.dispatchEvent(new Event('mouseleave'))
+    expect(document.querySelectorAll('.hub-tips').length).toBe(0)
+    expect(document.querySelectorAll('.hub-tips-bottom-left').length).toBe(0)
   })
 })
