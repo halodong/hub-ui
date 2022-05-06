@@ -1,4 +1,10 @@
-import { elHasClassName, renderHubBtn } from './testUtils'
+import { HubBtn } from '../src/components/Button'
+import { elHasClassName } from './testUtils'
+const renderHubBtn = (): HubBtn => {
+  const el = new HubBtn()
+  document.body.appendChild(el)
+  return el
+}
 
 describe('test Button component', () => {
   it('should render the correct default button', () => {

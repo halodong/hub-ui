@@ -1,4 +1,11 @@
-import { elHasClassName, renderHubInput } from './testUtils'
+import { HubInput } from '../src/components/Input'
+import { elHasClassName } from './testUtils'
+
+export const renderHubInput = (): HubInput => {
+  const el = new HubInput()
+  document.body.appendChild(el)
+  return el
+}
 
 describe('test Input component', () => {
   it('should render the correct default input', () => {
