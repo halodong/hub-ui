@@ -13,7 +13,7 @@ export const Tips = (options: TipsOption): HubTips => {
   }
   const params = { ...defaults, ...options }
 
-  const { trigger, position, openOn, text } = params
+  const { trigger, position, openOn, text, delay } = params
   const direction: string = position.split(' ')[0]
   const offset: string = position.split(' ')[1]
   const drop = new Drop({
@@ -23,7 +23,8 @@ export const Tips = (options: TipsOption): HubTips => {
     position,
     constrainToWindow: false,
     constrainToScrollParent: false,
-    openOn
+    openOn,
+    openDelay: delay
   })
   return {
     type: 'hub-tips',
