@@ -7,11 +7,11 @@ const Loading = (el: HTMLElement, options: Options): void => {
   }
 }
 const unLoading = (el: HTMLElement, options: Options): void => {
-  if (options.size != null) {
-    el.classList.remove(`${loadingClassName}-${options.size}`)
-  } else {
-    el.classList.remove(loadingClassName)
-  }
+  el.classList.forEach(className => {
+    if (className.includes(loadingClassName)) {
+      el.classList.remove(className)
+    }
+  })
 }
 Object.defineProperty(HTMLElement.prototype, 'loading', {
   value (val: boolean = true, options?) {
